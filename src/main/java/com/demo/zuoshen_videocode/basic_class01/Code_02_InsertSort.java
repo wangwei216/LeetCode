@@ -20,6 +20,7 @@ public class Code_02_InsertSort {
 			for (int j = i-1;j >= 0 && arr[j] > arr[j+1];j--){
 				swap(arr,j,j+1);
 			}
+			printArray(arr);
 		}
 	}
 	// for test
