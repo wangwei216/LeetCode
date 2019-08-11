@@ -336,7 +336,7 @@ public class Problem_25_MadianQuick {
 
 	}
 
-	// for test
+	// for HungrySingleton
 	public static int[] getRandomArray(int maxLen, int maxValue) {
 		int[] res = new int[(int) (Math.random() * maxLen) + 1];
 		for (int i = 0; i != res.length; i++) {
@@ -345,7 +345,7 @@ public class Problem_25_MadianQuick {
 		return res;
 	}
 
-	// for test, this method is ineffective but absolutely right
+	// for HungrySingleton, this method is ineffective but absolutely right
 	public static int getMedianOfArray(int[] arr) {
 		int[] newArr = Arrays.copyOf(arr, arr.length);
 		Arrays.sort(newArr);

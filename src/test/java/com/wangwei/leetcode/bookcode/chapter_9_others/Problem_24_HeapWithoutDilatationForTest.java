@@ -253,7 +253,7 @@ public class Problem_24_HeapWithoutDilatationForTest {
 			return node;
 		}
 
-		// for test
+		// for HungrySingleton
 		public void changeHead(K value) {
 			if (this.head != null) {
 				Node<K> newNode = new Node<K>(value);
@@ -274,7 +274,7 @@ public class Problem_24_HeapWithoutDilatationForTest {
 			}
 		}
 
-		// for test
+		// for HungrySingleton
 		public void printHeapByLevel() {
 			if (this.size == 0) {
 				System.out.println("Heap Empty!");
@@ -286,7 +286,7 @@ public class Problem_24_HeapWithoutDilatationForTest {
 			printBinaryTreeByDepth(this.head);
 		}
 
-		// for test
+		// for HungrySingleton
 		private void printBinaryTreeByDepth(Node<K> head) {
 			Queue<Node<K>> nodeQueue = new LinkedList<Node<K>>();
 			Node<K> levelLastNode = head;
@@ -318,7 +318,7 @@ public class Problem_24_HeapWithoutDilatationForTest {
 
 	}
 
-	// for test
+	// for HungrySingleton
 	public static class MyComparator implements Comparator<Integer> {
 		@Override
 		public int compare(Integer o1, Integer o2) {
@@ -330,7 +330,7 @@ public class Problem_24_HeapWithoutDilatationForTest {
 		}
 	}
 
-	// for test
+	// for HungrySingleton
 	public static void main(String[] args) {
 		// ���MyComparator���������ɴ���ѵ�ʵ�����û���ȻҲ�ɶ���С���ѵ�Comparator������С���ѵ�ʵ��
 		MyHeap<Integer> test = new MyHeap<Integer>(new MyComparator());

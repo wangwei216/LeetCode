@@ -89,12 +89,12 @@ public class Code_03_HeapSort {
 		arr[j] = tmp;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static void comparator(int[] arr) {
 		Arrays.sort(arr);
 	}
 
-	// for test
+	// for HungrySingleton
 	public static int[] generateRandomArray(int maxSize, int maxValue) {
 		int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
 		for (int i = 0; i < arr.length; i++) {
@@ -103,7 +103,7 @@ public class Code_03_HeapSort {
 		return arr;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static int[] copyArray(int[] arr) {
 		if (arr == null) {
 			return null;
@@ -115,7 +115,7 @@ public class Code_03_HeapSort {
 		return res;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static boolean isEqual(int[] arr1, int[] arr2) {
 		if ((arr1 == null && arr2 != null) || (arr1 != null && arr2 == null)) {
 			return false;
@@ -134,7 +134,7 @@ public class Code_03_HeapSort {
 		return true;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static void printArray(int[] arr) {
 		if (arr == null) {
 			return;
@@ -145,7 +145,7 @@ public class Code_03_HeapSort {
 		System.out.println();
 	}
 
-	// for test
+	// for HungrySingleton
 	public static void main(String[] args) {
 		int testTime = 5;
 		int maxSize = 100;

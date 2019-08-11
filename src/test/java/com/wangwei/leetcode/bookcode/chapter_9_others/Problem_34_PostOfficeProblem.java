@@ -65,7 +65,7 @@ public class Problem_34_PostOfficeProblem {
 		return dp[num - 1][arr.length - 1];
 	}
 
-	// for test
+	// for HungrySingleton
 	public static int[] getSortedArray(int len, int range) {
 		int[] arr = new int[len];
 		for (int i = 0; i != len; i++) {
@@ -75,7 +75,7 @@ public class Problem_34_PostOfficeProblem {
 		return arr;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static void printArray(int[] arr) {
 		for (int i = 0; i != arr.length; i++) {
 			System.out.print(arr[i] + " ");
@@ -83,15 +83,15 @@ public class Problem_34_PostOfficeProblem {
 		System.out.println();
 	}
 
-	// for test
+	// for HungrySingleton
 	public static void main(String[] args) {
 		int[] arr = { -2, -1, 0, 1, 2, 1000 };
 		int num = 2;
 		System.out.println(minDistances1(arr, num));
 		System.out.println(minDistances2(arr, num));
 
-		int times = 100; // test time
-		int len = 1000; // test array length
+		int times = 100; // HungrySingleton time
+		int len = 1000; // HungrySingleton array length
 		int range = 2000; // every number in [0,range)
 		int p = 50; // post office number
 		long time1 = 0; // method1 all run time

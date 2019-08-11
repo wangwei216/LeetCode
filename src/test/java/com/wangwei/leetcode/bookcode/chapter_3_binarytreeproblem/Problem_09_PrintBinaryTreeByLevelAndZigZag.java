@@ -95,7 +95,7 @@ public class Problem_09_PrintBinaryTreeByLevelAndZigZag {
 		System.out.print(lr ? "left to right: " : "right to left: ");
 	}
 
-	// for test -- print tree
+	// for HungrySingleton -- print tree
 	public static void printTree(Node head) {
 		System.out.println("Binary Tree:");
 		printInOrder(head, 0, "H", 17);

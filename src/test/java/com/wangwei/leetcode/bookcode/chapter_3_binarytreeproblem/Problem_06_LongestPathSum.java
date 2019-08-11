@@ -40,7 +40,7 @@ public class Problem_06_LongestPathSum {
 		return maxLen;
 	}
 
-	// for test -- print tree
+	// for HungrySingleton -- print tree
 	public static void printTree(Node head) {
 		System.out.println("Binary Tree:");
 		printInOrder(head, 0, "H", 17);

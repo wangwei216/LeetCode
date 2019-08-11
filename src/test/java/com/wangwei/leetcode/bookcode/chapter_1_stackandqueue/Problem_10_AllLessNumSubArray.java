@@ -40,7 +40,7 @@ public class Problem_10_AllLessNumSubArray {
 		return res;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static int[] getRandomArray(int len) {
 		if (len < 0) {
 			return null;
@@ -52,7 +52,7 @@ public class Problem_10_AllLessNumSubArray {
 		return arr;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static void printArray(int[] arr) {
 		if (arr != null) {
 			for (int i = 0; i < arr.length; i++) {

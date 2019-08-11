@@ -23,7 +23,7 @@ public class Code_06_PalindromeMinCut {
 		return dp[0];
 	}
 
-	// for test
+	// for HungrySingleton
 	public static String getRandomStringOnlyAToD(int len) {
 		int range = 'D' - 'A' + 1;
 		char[] charArr = new char[(int) (Math.random() * (len + 1))];

@@ -74,7 +74,7 @@ public class Code_05_LongestSubarrayLessSumAwesomeSolution {
 		return res;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static int[] generateRandomArray(int len, int maxValue) {
 		int[] res = new int[len];
 		for (int i = 0; i != res.length; i++) {

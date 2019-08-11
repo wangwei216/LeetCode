@@ -59,7 +59,7 @@ public class Code_06_ShuffleProblem {
 		}
 	}
 
-	// for test
+	// for HungrySingleton
 	public static void printArray(int[] arr) {
 		for (int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i] + " ");
@@ -67,7 +67,7 @@ public class Code_06_ShuffleProblem {
 		System.out.println();
 	}
 
-	// for test
+	// for HungrySingleton
 	public static int[] generateArray() {
 		int len = (int) (Math.random() * 10) * 2;
 		int[] arr = new int[len];
@@ -77,7 +77,7 @@ public class Code_06_ShuffleProblem {
 		return arr;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static void shuffleTest(int[] arr) {
 		int[] tarr = new int[arr.length];
 		int bloom = arr.length + 1;

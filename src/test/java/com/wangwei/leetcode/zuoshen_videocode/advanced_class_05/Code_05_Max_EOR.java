@@ -49,7 +49,7 @@ public class Code_05_Max_EOR {
 		return max;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static int comparator(int[] arr) {
 		if (arr == null || arr.length == 0) {
 			return 0;
@@ -65,7 +65,7 @@ public class Code_05_Max_EOR {
 		return max;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static int[] generateRandomArray(int maxSize, int maxValue) {
 		int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
 		for (int i = 0; i < arr.length; i++) {
@@ -74,7 +74,7 @@ public class Code_05_Max_EOR {
 		return arr;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static void printArray(int[] arr) {
 		if (arr == null) {
 			return;
@@ -85,7 +85,7 @@ public class Code_05_Max_EOR {
 		System.out.println();
 	}
 
-	// for test
+	// for HungrySingleton
 	public static void main(String[] args) {
 		int testTime = 500000;
 		int maxSize = 30;

@@ -23,7 +23,7 @@ public class Code_02_InsertSort {
 			printArray(arr);
 		}
 	}
-	// for test
+	// for HungrySingleton
 	public static void main(String[] args) {
 		int testTime = 1;
 		int maxSize = 100;
@@ -79,7 +79,7 @@ public class Code_02_InsertSort {
 		return res;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static boolean isEqual(int[] arr1, int[] arr2) {
 		if ((arr1 == null && arr2 != null) || (arr1 != null && arr2 == null)) {
 			return false;
@@ -98,7 +98,7 @@ public class Code_02_InsertSort {
 		return true;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static void printArray(int[] arr) {
 		if (arr == null) {
 			return;

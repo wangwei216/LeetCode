@@ -40,7 +40,7 @@ public class Problem_12_LongestLessSumSubArrayLength {
 		return res;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static int[] generateRandomArray(int len, int maxValue) {
 		int[] res = new int[len];
 		for (int i = 0; i != res.length; i++) {
@@ -49,7 +49,7 @@ public class Problem_12_LongestLessSumSubArrayLength {
 		return res;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static void printArray(int[] arr) {
 		for (int i = 0; i != arr.length; i++) {
 			System.out.print(arr[i] + " ");

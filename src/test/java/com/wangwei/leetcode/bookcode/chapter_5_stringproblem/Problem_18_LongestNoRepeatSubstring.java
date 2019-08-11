@@ -23,7 +23,7 @@ public class Problem_18_LongestNoRepeatSubstring {
 		return len;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static String getRandomString(int len) {
 		char[] str = new char[len];
 		int base = 'a';
@@ -34,7 +34,7 @@ public class Problem_18_LongestNoRepeatSubstring {
 		return String.valueOf(str);
 	}
 
-	// for test
+	// for HungrySingleton
 	public static String maxUniqueString(String str) {
 		if (str == null || str.equals("")) {
 			return str;

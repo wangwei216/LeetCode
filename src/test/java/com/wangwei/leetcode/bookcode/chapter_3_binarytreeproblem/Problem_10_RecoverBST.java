@@ -181,7 +181,7 @@ public class Problem_10_RecoverBST {
 		return head;
 	}
 
-	// for test -- print tree
+	// for HungrySingleton -- print tree
 	public static void printTree(Node head) {
 		System.out.println("Binary Tree:");
 		printInOrder(head, 0, "H", 17);
@@ -211,7 +211,7 @@ public class Problem_10_RecoverBST {
 		return buf.toString();
 	}
 
-	// for test
+	// for HungrySingleton
 	public static boolean isBST(Node head) {
 		if (head == null) {
 			return false;

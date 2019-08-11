@@ -4,8 +4,8 @@
 package com.wangwei.jianzhi_offer;
 
 /**
- * @FileName: test.java
- * @Description: test.java类说明
+ * @FileName: HungrySingleton.java
+ * @Description: HungrySingleton.java类说明
  * @Author: wangwei
  * @Date: 2019/6/22 20:34
  */

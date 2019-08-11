@@ -64,7 +64,7 @@ public class Problem_23_UniqueBST {
 		return res;
 	}
 
-	// for test -- print tree
+	// for HungrySingleton -- print tree
 	public static void printTree(Node head) {
 		System.out.println("Binary Tree:");
 		printInOrder(head, 0, "H", 17);

@@ -106,7 +106,7 @@ public class Problem_21_ChineseExpression {
 		}
 	}
 
-	// for test
+	// for HungrySingleton
 	public static int generateRandomNum() {
 		boolean isNeg = Math.random() > 0.5 ? false : true;
 		int value = (int) (Math.random() * Integer.MIN_VALUE);

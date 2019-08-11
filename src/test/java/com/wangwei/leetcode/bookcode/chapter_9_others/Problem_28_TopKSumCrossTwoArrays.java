@@ -114,7 +114,7 @@ public class Problem_28_TopKSumCrossTwoArrays {
 		set.add(String.valueOf(row + "_" + col));
 	}
 
-	// For test, this method is inefficient but absolutely right
+	// For HungrySingleton, this method is inefficient but absolutely right
 	public static int[] topKSumTest(int[] arr1, int[] arr2, int topK) {
 		int[] all = new int[arr1.length * arr2.length];
 		int index = 0;

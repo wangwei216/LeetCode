@@ -42,7 +42,7 @@ public class Code_07_MinPath {
 		return dp[row - 1][col - 1];
 	}
 
-	// for test
+	// for HungrySingleton
 	public static int[][] generateRandomMatrix(int rowSize, int colSize) {
 		if (rowSize < 0 || colSize < 0) {
 			return null;

@@ -23,12 +23,12 @@ public class Code_00_BubbleSort {
 		arr[i] = arr[i] ^ arr[j];
 	}
 
-	// for test
+	// for HungrySingleton
 	public static void comparator(int[] arr) {
 		Arrays.sort(arr);
 	}
 
-	// for test
+	// for HungrySingleton
 	public static int[] generateRandomArray(int maxSize, int maxValue) {
 		int[] arr = new int[(int) ((maxSize + 1) * Math.random())];
 		for (int i = 0; i < arr.length; i++) {
@@ -37,7 +37,7 @@ public class Code_00_BubbleSort {
 		return arr;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static int[] copyArray(int[] arr) {
 		if (arr == null) {
 			return null;
@@ -49,7 +49,7 @@ public class Code_00_BubbleSort {
 		return res;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static boolean isEqual(int[] arr1, int[] arr2) {
 		if ((arr1 == null && arr2 != null) || (arr1 != null && arr2 == null)) {
 			return false;
@@ -68,7 +68,7 @@ public class Code_00_BubbleSort {
 		return true;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static void printArray(int[] arr) {
 		if (arr == null) {
 			return;
@@ -79,7 +79,7 @@ public class Code_00_BubbleSort {
 		System.out.println();
 	}
 
-	// for test
+	// for HungrySingleton
 	public static void main(String[] args) {
 		int testTime = 500000;
 		int maxSize = 100;

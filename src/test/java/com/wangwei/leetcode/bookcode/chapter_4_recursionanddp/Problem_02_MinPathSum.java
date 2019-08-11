@@ -46,7 +46,7 @@ public class Problem_02_MinPathSum {
 		return arr[less - 1];
 	}
 
-	// for test
+	// for HungrySingleton
 	public static int[][] generateRandomMatrix(int rowSize, int colSize) {
 		if (rowSize < 0 || colSize < 0) {
 			return null;
@@ -60,7 +60,7 @@ public class Problem_02_MinPathSum {
 		return result;
 	}
 
-	// for test
+	// for HungrySingleton
 	public static void printMatrix(int[][] matrix) {
 		for (int i = 0; i != matrix.length; i++) {
 			for (int j = 0; j != matrix[0].length; j++) {
