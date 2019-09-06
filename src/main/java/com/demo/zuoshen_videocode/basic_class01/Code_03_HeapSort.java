@@ -33,15 +33,6 @@ public class Code_03_HeapSort {
 		}
 
 	}
-	//这个就是把数组中下标所在位置的数据插入到堆中
-	public static void heapInsert(int[] arr,int i){
-
-	}
-
-
-	public static void heapify(int[] arr,int index, int size){
-
-	}
 
 
 	/*public static void heapSort(int[] arr) {
@@ -59,14 +50,16 @@ public class Code_03_HeapSort {
 			heapify(arr, 0, size);
 			swap(arr, 0, --size);
 		}
-	}
+	}*/
 
+	//这个就是把数组中下标所在位置的数据插入到堆中
 	public static void heapInsert(int[] arr, int index) {
 		while (arr[index] > arr[(index - 1) / 2]) {
 			swap(arr, index, (index - 1) / 2);
 			index = (index - 1) / 2;
 		}
 	}
+
 
 	//这个是调整堆的方法，只要当前堆不满足堆的基本性质就进行调整
 	public static void heapify(int[] arr, int index, int size) {
@@ -81,7 +74,7 @@ public class Code_03_HeapSort {
 			index = largest;
 			left = index * 2 + 1;
 		}
-	}*/
+	}
 
 	public static void swap(int[] arr, int i, int j) {
 		int tmp = arr[i];
