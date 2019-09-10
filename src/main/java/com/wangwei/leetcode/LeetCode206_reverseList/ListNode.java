@@ -1,4 +1,4 @@
-package com.demo.leetcode.LeetCode206_reverseList;
+package com.wangwei.leetcode.LeetCode206_reverseList;
 
 public class ListNode {
 

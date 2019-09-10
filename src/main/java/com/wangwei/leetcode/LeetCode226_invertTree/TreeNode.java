@@ -1,4 +1,4 @@
-package com.demo.leetcode.LeetCode226_invertTree;
+package com.wangwei.leetcode.LeetCode226_invertTree;
 
 public class TreeNode {
 
