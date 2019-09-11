@@ -1,7 +1,7 @@
 package com.wangwei.algorithm;
 
 /**
- * @Description ArrayToQueue
+ * @Description 用数组实现一个队列：
  * @Version 1.0
  * @Author: wangwei
  * @Date: 2019/9/10 22:51
