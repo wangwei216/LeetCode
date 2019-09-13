@@ -34,8 +34,28 @@ public class ReverseList {
         return pre;
     }
 
+    public static void main(String[] args) {
+        Node node1 = new Node(11);
+        node1.setNext(new Node(22));
+        node1.getNext().setNext(new Node(33));
+
+        while (node1 != null){
+            System.out.println(node1.Data);
+            node1 = node1.Next;
+        }
+
+        ReverseList main = new ReverseList();
+        Node node = main.reverseList(node1);
+        while (node != null){
+            System.out.println(node.Data);
+            node = node.Next;
+        }
+
+
+    }
+
     //单链表Node节点内部类
-    class Node {
+    static class Node {
         private int Data;// 数据域
         private Node Next;// 指针域
 
