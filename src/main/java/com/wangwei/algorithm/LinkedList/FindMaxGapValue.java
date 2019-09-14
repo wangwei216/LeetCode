@@ -1,4 +1,4 @@
-package com.wangwei.algorithm;
+package com.wangwei.algorithm.LinkedList;
 
 /**
  * @Description 给出一个数组，找出数组中相邻的两个数之间的最大差值

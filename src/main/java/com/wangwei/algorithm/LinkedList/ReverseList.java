@@ -1,4 +1,4 @@
-package com.wangwei.algorithm;
+package com.wangwei.algorithm.LinkedList;
 
 
 /**
