@@ -54,10 +54,9 @@ public class BinaryTreeTraversal1 {
         head.left = new Node(2);
         head.right = new Node(3);
         head.left.left = new Node(4);
-        head.left.right = new Node(5);
-        head.right.left = new Node(6);
-        head.right.right = new Node(7);
-        head.left.left.left = new Node(8);
+        head.right.left = new Node(5);
+        head.right.right = new Node(6);
+        head.left.left.right = new Node(7);
 //        head.right.left.left = new Node(8);
 //        head.right.right = new Node(9);
 //        head.right.right.left = new Node(10);
@@ -65,7 +64,7 @@ public class BinaryTreeTraversal1 {
         BinaryTreeTraversal1 binaryTreeTraversal1 = new BinaryTreeTraversal1();
 //        binaryTreeTraversal1.preOrderPrint(head);
 //        binaryTreeTraversal1.inOrderPrint(head);
-        binaryTreeTraversal1.posOrderPrint(head);
+        binaryTreeTraversal1.inOrderPrint(head);
 
     }
 
