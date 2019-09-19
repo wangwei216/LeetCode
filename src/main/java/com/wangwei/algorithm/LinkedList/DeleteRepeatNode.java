@@ -10,7 +10,9 @@ public class DeleteRepeatNode {
 
     /**
      * 删除重复节点链表的思路：
-     *  1.
+     *  1.先从链表的头结点之前添加一个节点，开始删除，防止出现第一个头结点就是重复的
+     *  2.
+     *
      *
      */
 
@@ -41,6 +43,7 @@ public class DeleteRepeatNode {
     }
 
 
+    //这个是只能删除重复的后面的节点
     public ListNode deleteDuplication(ListNode pHead) {
         if (pHead == null || pHead.next == null){
             return pHead;
