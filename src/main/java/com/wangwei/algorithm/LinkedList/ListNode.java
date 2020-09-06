@@ -9,9 +9,9 @@ package com.wangwei.algorithm.LinkedList;
 public class ListNode {
 
     int val;
-    ListNode next = null;
+    ListNode next;
 
-    ListNode(int val) {
+    public ListNode(int val) {
         this.val = val;
     }
 }
