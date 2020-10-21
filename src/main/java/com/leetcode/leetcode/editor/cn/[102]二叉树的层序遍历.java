@@ -44,7 +44,7 @@ import java.util.Queue;
 class Solution {
     /**
      * 使用栈的思想对二叉树进行层序遍历
-     *  1.思路就是用一个队列（用队列的目的就是）和一个List
+     *  1.思路就是用一个队列（用队列的目的是可以保证从左到右是先进先出的顺序）和一个List（这个就是为了）
      *
      */
     public List<List<Integer>> levelOrder(TreeNode root) {
