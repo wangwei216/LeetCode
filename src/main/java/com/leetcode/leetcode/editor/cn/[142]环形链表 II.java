@@ -57,20 +57,48 @@
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
+
 /**
  * Definition for singly-linked list.
  * class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) {
- *         val = x;
- *         next = null;
- *     }
+ * int val;
+ * ListNode next;
+ * ListNode(int x) {
+ * val = x;
+ * next = null;
+ * }
  * }
  */
 public class Solution {
+    /**
+     * 第一种使用快慢指针
+     *
+     * @param head
+     * @return
+     */
     public ListNode detectCycle(ListNode head) {
-        if ()
+        ListNode fast = head;
+        ListNode slow = head;
+        ListNode meet = null;
+        while (fast != null) {
+            //先进行判断快指针如果走一步到头
+            if (fast.next == null) {
+                return null;
+            }
+            fast = fast.next.next;
+            slow = slow.next;
+            if (fast == slow) {
+                // 如果相遇，就让头节点和相遇的节点同时进行走，相遇的那个节点就是
+                meet = fast;
+                while (meet != head) {
+                    head = head.next;
+                    meet = meet.next;
+                }
+                // 当头节点和相遇的节点再次碰头的时候，就是成环的入口点了
+                return head;
+            }
+        }
+        return null;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
