@@ -36,18 +36,41 @@
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode(int x) { val = x; }
+ * int val;
+ * TreeNode left;
+ * TreeNode right;
+ * TreeNode(int x) { val = x; }
  * }
  */
 class Solution {
+    /**
+     * 第一种方法是递归查询的
+     *
+     * @param root
+     * @param p
+     * @param q
+     * @return
+     */
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        
+        // 递归跳出的条件，此次递归的循环体就是用root节点进行下去的
+        if (root == null || root == p || root == q) {
+            return root;
+        }
+        TreeNode leftNode = lowestCommonAncestor(root.left, p, q);
+        TreeNode rightNode = lowestCommonAncestor(root.right, p, q);
+        if (leftNode == null) {
+            return rightNode;
+        }
+        if (rightNode == null) {
+            return leftNode;
+        }
+        return root;
     }
+
+
 }
 //leetcode submit region end(Prohibit modification and deletion)
