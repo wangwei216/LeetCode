@@ -47,6 +47,9 @@
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
+
+import com.wangwei.algorithm.LinkedList.ListNode;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -59,7 +62,7 @@
  */
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
-        
+        return null;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

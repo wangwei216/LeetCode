@@ -22,8 +22,55 @@
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+    /**
+     * 第一种使用暴力进行解决
+     * 核心其实就是
+     *
+     * @param nums
+     * @return
+     */
     public int findUnsortedSubarray(int[] nums) {
-
+        // 通过和最大的边界比获取到最小的最短的连续无序数组的左边界，通过和0比获取目标数组的最大值
+        int L = nums.length;
+        int R = 0;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[j] < nums[i]) {
+                    L = Math.min(L, i);
+                    R = Math.max(R, j);
+                }
+            }
+        }
+        return R - L > 0 ? R - L + 1 : 0;
     }
+
+    /**
+     * 第二种使用双指针的方法，时间复杂度O（n）
+     * 1. 主要思路就是
+     *
+     * @param nums
+     * @return
+     */
+    public int findUnsortedSubarray(int[] nums) {
+        int R = 0, L = nums.length;
+        int max = nums[0];
+        int min = nums[nums.length - 1];
+        for (int i = 0; i < nums.length; i++) {
+            // 从左遍历找右指针
+            if (nums[i] < max) {
+                R = i;
+            } else {
+                max = nums[i];
+            }
+            // 从右遍历找左指针
+            if (nums[nums.length - 1 - i] > min) {
+                L = nums.length - 1 - i;
+            } else {
+                min = nums[nums.length - 1 - i];
+            }
+        }
+        return R - L > 0 ? R - L + 1 : 0;
+    }
+
 }
 //leetcode submit region end(Prohibit modification and deletion)
