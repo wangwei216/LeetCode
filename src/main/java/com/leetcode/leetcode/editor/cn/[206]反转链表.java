@@ -22,8 +22,31 @@
  * }
  */
 class Solution {
+
+    /**
+     * 第一种迭代法
+     * 直接原地进行反转链表
+     *
+     * @param head
+     * @return
+     */
+    public ListNode reverseList(ListNode head) {
+        ListNode pre = null;
+        ListNode cur = head;
+        // 跳出的循环条件是从 header开始，如果head 为null，跳出
+        while (cur != null) {
+            ListNode tmp = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = tmp;
+        }
+        return pre;
+    }
+
+
     /**
      * 直接使用三个指针进行的
+     *
      * @param head
      * @return
      */

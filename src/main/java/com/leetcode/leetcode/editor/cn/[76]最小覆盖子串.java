@@ -34,7 +34,26 @@
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+    /**
+     * 第一种先用暴力方法进行暴力计算
+     * @param s
+     * @param t
+     * @return
+     */
     public String minWindow(String s, String t) {
+        if (s.length() == 0 || t.length() == 0){
+            return "";
+        }
+        int left = 0;
+        int right = s.length() - 1;
+        for (int i = 0; i < s.length() - 1; i++) {
+            if (t.contains(s.charAt(i))){
+                left = i;
+            } else {
+                left++;
+            }
+
+        }
 
     }
 }

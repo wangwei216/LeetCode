@@ -45,8 +45,52 @@ class Solution {
     }
 
     /**
-     * 第二种使用双指针方法
-     * 1.还是先遍历每个元素，然后找出该元素的左右两侧的最大值，然后找出其中的一个最小值
+     * 第二种使用双指针方法 （推荐使用）
+     * right_max
+     * left_max                             __
+     * __                                |  |
+     * |  |__   __??????????????????????  |  |
+     * __|     |__|                       __|  |__
+     * left                      right
+     * <p>
+     * 1. 首先进行是需要 最左 最右指针游标，和左边最大值，右边最大值 这俩值都是动态更新的
+     * 2. 有一点核心思想，就是在比较左右两边的值的大小的时候，如果右边的值比较大，那么能盛多少水，其实是有左边的最高值来决定的【类似木桶效应】。
+     */
+    public int trap(int[] height) {
+        int left = 0;
+        int right = height.length - 1;
+        int left_max = 0, right_max = 0;
+        int sum = 0;
+        // 第一层大循环遍历整个数组
+        while (left < right) {
+            // 第二层就是判断那个值大，所以这里如果是左边的值大，那么就移动右侧的右指针
+            if (height[left] >= height[right]) {
+                // 在遍历的过程中需要维护右边的最大值，用当前的小值 比较是不是大于 移动方的最大值，大于则更新。否则移动指针
+                if (height[right] >= right_max) {
+                    right_max = height[right];
+                } else {
+                    // 因为每次都是移动一个单元格，所以直接用最大值减去当前值就是可以盛水的单元格
+                    sum += (right_max - height[right]);
+                }
+                --right;
+            } else {
+                // 右边的值 》 左边，移动左指针，更新左边最大值
+                if (height[left] >= left_max) {
+                    left_max = height[left];
+                } else {
+                    sum += (left_max - height[left]);
+                }
+                ++left;
+            }
+        }
+        return sum;
+    }
+
+    /**
+     * 第三种双指针法
+     *
+     * @param height
+     * @return
      */
     public int trap(int[] height) {
         int len = height.length;
