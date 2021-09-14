@@ -17,6 +17,10 @@
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -33,8 +37,27 @@
  * }
  */
 class Solution {
+    /**
+     * 深度优先遍历递归
+     *  1. 核心思路就是按照层级关系去把当前层的值放到结果集和中
+     */
+    List<Integer> res = new ArrayList<>();
     public List<Integer> rightSideView(TreeNode root) {
-
+        dfs(root, 0);
+        return res;
+    }
+    public void dfs(TreeNode root, int deepth) {
+        // 递归结束条件
+        if (root == null) {
+            return;
+        }
+        // 如果当前节点所在深度还没有出现在res里，说明在该深度下当前节点是第一个被访问的节点，因此将当前节点加入res中
+        if (res.size() == deepth) {
+            res.add(root.val);
+        }
+        deepth++;
+        dfs(root.right, deepth);
+        dfs(root.left, deepth);
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

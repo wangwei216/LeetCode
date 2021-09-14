@@ -59,18 +59,19 @@ class Solution {
     public int trap(int[] height) {
         int left = 0;
         int right = height.length - 1;
+
         int left_max = 0, right_max = 0;
         int sum = 0;
         // 第一层大循环遍历整个数组
         while (left < right) {
-            // 第二层就是判断那个值大，所以这里如果是左边的值大，那么就移动右侧的右指针
+            // 第二层就是判断那个值大，就是在比较左右两边的值的大小的时候，如果右边的值比较大，那么能盛多少水，其实是由左边的最高值来决定的【类似木桶效应】
             if (height[left] >= height[right]) {
                 // 在遍历的过程中需要维护右边的最大值，用当前的小值 比较是不是大于 移动方的最大值，大于则更新。否则移动指针
                 if (height[right] >= right_max) {
                     right_max = height[right];
                 } else {
                     // 因为每次都是移动一个单元格，所以直接用最大值减去当前值就是可以盛水的单元格
-                    sum += (right_max - height[right]);
+                    sum += (right_max - height[right]) * 1;
                 }
                 --right;
             } else {
@@ -87,10 +88,10 @@ class Solution {
     }
 
     /**
-     * 第三种双指针法
-     *
-     * @param height
-     * @return
+     * 第三种双指针法思路：
+     * 1. 通过双指针类型的遍历，找到左右两边的最大值
+     * 2. 根据左边最大值和右边最大值的比较，来确定是使用左边最大值还是右边最大值来作为接雨水的基准值，
+     * 在遍历的过程中，其实就是再一格一格的计算相邻两个柱子之间能接到的雨水之和
      */
     public int trap(int[] height) {
         int len = height.length;
@@ -104,15 +105,15 @@ class Solution {
         int r_max = height[len - 1];
         // 这里左右指针相等的时候跳出循环
         while (left < right) {
-            // 先找到左右两侧的最大值
+            // 先找到左右两侧的最大值，如果右边的值比较大，那么能盛多少水，其实是由左边的最高值来决定的【类似木桶效应】
             l_max = Math.max(l_max, height[left]);
             r_max = Math.max(r_max, height[right]);
-            // 然后根据左右两侧最大值不同，因此计算方式不一致
+            // 找出较小的那个最大值，如果用左侧的最大值比较小，则移动左指针，和当前侧正在遍历的柱子和较小的那个最大值进行计算面积，
             if (l_max < r_max) {
-                sum += Math.min(l_max, r_max) - height[left];
+                sum += (Math.min(l_max, r_max) - height[left]) * 1;
                 left++;
             } else {
-                sum += Math.min(l_max, r_max) - height[right];
+                sum += (Math.min(l_max, r_max) - height[right]) * 1;
                 right--;
             }
         }

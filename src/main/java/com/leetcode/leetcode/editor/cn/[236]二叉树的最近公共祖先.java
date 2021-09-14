@@ -62,6 +62,7 @@ class Solution {
         }
         TreeNode leftNode = lowestCommonAncestor(root.left, p, q);
         TreeNode rightNode = lowestCommonAncestor(root.right, p, q);
+        // 这里其实算是一个核心，因为在递归的过程中是有两个左右子树的，如果一个子树没有找到目标值，那肯定就会一直往下找，直到没有左右节点才返回
         if (leftNode == null) {
             return rightNode;
         }

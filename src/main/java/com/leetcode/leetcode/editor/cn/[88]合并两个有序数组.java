@@ -105,8 +105,6 @@ class Solution {
             nums1[i] = nums2[i];
         }
     }
-
-
 }
 //leetcode submit region end(Prohibit modification and deletion)
 

@@ -28,6 +28,7 @@
 class Solution {
     /**
      * 第一种是先进行暴力计算
+     *
      * @param prices
      * @return
      */
@@ -36,28 +37,27 @@ class Solution {
         for (int i = 0; i < prices.length; i++) {
             // 这里从i + 1 开始的意思是卖出的利润必须是N+1
             for (int j = i + 1; j < prices.length; j++) {
-                maxFix = Math.max(maxFix, (prices[j] -prices[i]));
+                maxFix = Math.max(maxFix, (prices[j] - prices[i]));
             }
         }
         return maxFix;
     }
 
     /**
-     * 第二种使用双指针进行
-     *
+     * 第二种使用动态规划
+     * 需要定义一下：db[i] 表示第i天卖出的最大利润 db[i]
+     * 那么最大的利润 =  第 i-1 天卖出的最大利润  + 当天的利润差
      */
     public int maxProfit(int[] prices) {
-        int maxFix = 0;
-        int buy = 0;
-        int sell = 0;
-        for (; sell < prices.length; i++) {
-            if (prices[sell] < prices[buy]){
-                buy = sell;
-            } else {
-                maxFix = Math.max(maxFix, prices[sell] - prices[buy]);
-            }
+        int pre = 0; // 表示前一天卖出的最大利润
+        int sum = 0;
+        for (int i = 1; i < prices.length; i++) {
+            int diff = prices[i] - prices[i - 1];
+            // 因为也可能今天的价格低于昨天的价格，那当天的利润就是负数了，需要置为0
+            pre = Math.max(pre + diff, 0);
+            sum = Math.max(sum, pre);
         }
-        return maxFix;
+        return sum;
     }
 
 }

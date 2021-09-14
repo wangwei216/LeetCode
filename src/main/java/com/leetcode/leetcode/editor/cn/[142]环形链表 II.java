@@ -72,7 +72,7 @@
 public class Solution {
     /**
      * 第一种使用快慢指针
-     *
+     *  思路：
      * @param head
      * @return
      */
@@ -99,6 +99,12 @@ public class Solution {
             }
         }
         return null;
+    }
+
+
+    public ListNode detectCycle(ListNode head) {
+
+
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

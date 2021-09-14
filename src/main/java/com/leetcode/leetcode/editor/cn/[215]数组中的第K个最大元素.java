@@ -93,15 +93,77 @@ class Solution {
     }
 
     /**
-     * 第三种方法是使用最原始的对排序进行实现的
+     * 第二次写快排
+     *
      * @param nums
      * @param k
      * @return
      */
     public int findKthLargest(int[] nums, int k) {
-
+        // 这里的都是指下标
+        int target = nums.length - k;
+        int left = 0;
+        int right = nums.length - 1;
+        // 其实这里可以改成一个递归，但是也可以用一个循环
+        while (true) {
+            // 首先需要进行一个partition 的过程，第一次结束后，其实就是把这个数组拆分为两个数组了
+            int index = partition(nums, left, right);
+            // 其实是根据下标去判断我们要找的那个值在原数组中哪里
+            if (index == target) {
+                return nums[index];
+            } else if (index > target) {
+                // 这里因为是一个死循环，所以此时重置 左右指针
+                right = index - 1;
+            } else {
+                left = index + 1;
+            }
+        }
 
     }
+
+    public int partion(int[] nums, int left, int right) {
+
+    }
+
+
+    /**
+     * 标准版本的快排
+     *
+     * @param nums
+     * @return
+     */
+    public int sort(int[] nums) {
+        return quickSort(nums, 0, nums.length - 1);
+    }
+
+    public void quickSort(int[] nums, int left, int right) {
+        if (right < left) {
+            return;
+        }
+        int L = left;
+        int R = right;
+        // 随便取一个基准值
+        int povit = nums[L];
+        // 最外层其实就是一个双指针的遍历
+        while (L < R) {
+            // 先从右往左找到一个比基准值小的
+            while (L < R && nums[R] >= povit) {
+                R--;
+            }
+            nums[L] = nums[R];
+
+            // 从左向右找大于基准值的
+            while (L < R && nums[L] <= povit) {
+                L++;
+            }
+            nums[R] = nums[L];
+        }
+        // 到这里说明L和R相遇了，已经跳出循环了，把他们两个相遇的位置和一开始的基准值进行交换位置
+        nums[L] = povit;
+        quickSort(nums, L, left - 1);
+        partion(nums, left + 1, R);
+    }
+
 
 }
 //leetcode submit region end(Prohibit modification and deletion)

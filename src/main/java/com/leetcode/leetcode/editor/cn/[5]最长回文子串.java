@@ -67,21 +67,24 @@ class Solution {
     public String longestPalindrome(String s) {
         int n = s.length();
         //dp[i][j]中i -> j表示是不是回文串
+        // i 表示字符串的开始位置，j 表示字符串结束的位置
         boolean[][] dp = new boolean[n][n];
         String ans = "";
+        // 第一层是遍历每一个字符
         for (int l = 0; l < n; ++l) {
             for (int i = 0; i + l < n; i++) {
-                int j = i + 1;
+                int j = i + l;
+                // 这个 l 表示两个字符串相差的位数
                 if (l == 0) {
                     dp[i][j] = true;
-                } else if (l == 1) {
+                } else if (l == 1) { // 如 bb
                     dp[i][j] = s.charAt(i) == s.charAt(j);
                 } else {
                     //如果外层的开始和结束的字符串相等的话，那么就去进行看内层的结果集是不是相同，如果都相同那就是说明是回文
                     dp[i][j] = (s.charAt(i) == s.charAt(j) && dp[i + 1][j - 1]);
                 }
                 //如果遍历完成，说明i -> j的值就是最大的回文串，当差值等于字符串的长度时跳出循环
-                if (dp[i][j] && l + 1 > ans.length()) {
+                if (dp[i][j] && l + 1 > ans.length()){
                     //i来控制开始下标，l表示从i -> j的距离值
                     ans = s.substring(i, i + l + 1);
                 }

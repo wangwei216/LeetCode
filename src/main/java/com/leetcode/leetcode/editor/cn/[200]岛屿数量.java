@@ -88,5 +88,42 @@ class Solution {
     }
 
 
+    /**
+     * 二刷 深度递归dfs
+     */
+    public int numIslands(char[][] grid) {
+        int result = 0;
+        int r = grid.length;
+        int c = grid[0].length;
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                // 因为是在寻找岛屿的数量，其实就是再找连续的1，不是1的话就不统计
+                if (grid[i][j] == '1') {
+                    dfs(grid, i, j);
+                    result++;
+                }
+            }
+        }
+        return result;
+    }
+    // 首先递归先考虑的结束条件就是：
+    public void dfs(char[][] grid, int r, int c) {
+        // 跳出递归的条件不越数组边界
+        if (r >= grid.length || c >= grid[0].length || r < 0 || c < 0) {
+            return;
+        }
+        // 为了防止数据重复被用，需要每次遍历完需要判断一下这个数字是不是被用过
+        if (grid[r][c] != '1') {
+            return;
+        }
+        // 这个数只是为了标记一下这个数，被用过，仅仅只是一个标记的作用
+        grid[r][c] = '2';
+
+        dfs(grid, r - 1, c);
+        dfs(grid, r + 1, c);
+        dfs(grid, r, c - 1);
+        dfs(grid, r, c + 1);
+    }
+
 }
 //leetcode submit region end(Prohibit modification and deletion)

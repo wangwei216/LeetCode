@@ -41,10 +41,11 @@ class Solution {
         Arrays.sort(intervals, ((o1, o2) -> o1[0] - o2[0]));
         // 构建返回结果集
         int[][] res = new int[intervals.length][2];
-        int index = 0; // 需要注意的是这个要从-1 开始，不然会多存储一对0
+        int index = -1; // 需要注意的是这个要从-1 开始，不然会多存储一对0
         for (int[] interval : intervals) {
-            // 第一对的需要直接保存，或者当前左端点大于 结果集合数组中最后一对的右端点
-            if (index == 0 || interval[0] > res[index][1]) {
+            // 第一对的需要直接保存，或者当前左端点大于 结果集合数组中最后一对的右端点，需要往结果集数组的下一个空位置进行添加到结果集合中
+            if (index == -1 || interval[0] > res[index][1]) {
+                index++;
                 res[index] = interval;
             } else {
                 // 否则的话说明当前数组的左端点和集合中的最后一对有重合部分，需要更新上一组的右端点
