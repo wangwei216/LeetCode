@@ -74,5 +74,25 @@ class Solution {
         }
         return tail;
     }
+
+    /**
+     * 第二种方法 递归
+     */
+    LisNode tmpNode;
+    public boolean isPalindrome(ListNode head) {
+        this.tmpNode = head;
+        return check(head);
+    }
+
+    public boolean check(ListNode head) {
+        if (head == null) {
+            return true;
+        }
+        // 核心是递归，因为要先执行 check，比较值是不是相等的时候的 head 的val 其实是刚刚递归之后的最后一个元素，也就是链表的尾部
+        // 然后用 head（尾部链表元素）和一开始构造进来的 链表头元素进行依次比较，然后退出当前的check递循环
+        boolean res = check(head.next) && (head.val == tmpNode.val);
+        tmpNode = tmpNode.next;
+        return res;
+    }
 }
 //leetcode submit region end(Prohibit modification and deletion)

@@ -33,8 +33,8 @@ import java.util.Arrays;
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     /**
-     * 精简版本的
-     *
+     * 精简版本方法实现：
+     *  1.
      */
     public int[][] merge(int[][] intervals) {
         // 还是需要对数组按照左部分进行排序

@@ -38,7 +38,7 @@ class Solution {
      */
     public int climbStairs(int n) {
         // 这里表示爬上n阶楼梯，需要dp[n]中方法
-        int[] dp = new int[];
+        int[] dp = new int[n + 1];
         // 这个是base case
         dp[0] = 1;
         dp[1] = 1;
