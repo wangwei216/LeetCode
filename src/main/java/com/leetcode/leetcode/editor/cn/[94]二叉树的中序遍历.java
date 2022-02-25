@@ -19,6 +19,7 @@
 //leetcode submit region begin(Prohibit modification and deletion)
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
 /**
@@ -37,13 +38,57 @@ import java.util.Stack;
  * }
  */
 class Solution {
+    /**
+     * 第一种方法 迭代遍历
+     */
+    public List<Integer> inorderTraversal(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        List<Integer> res = new ArrayList<>();
+        // 整个循环的跳出条件是root 是空时，如果栈中有的话就继续放进去
+        while (root != null || !stack.isEmpty()) {
+            // 然后让节点一直向左走
+            while (root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            root = stack.pop();
+            res.add(root.val);
+            // 然后再去遍历右半部分
+            root = root.right;
+        }
+        return res;
+    }
+
+
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        Stack<TreeNode> stack = new Stack();
+        // 这一层循环主要是为了一层一层的出站
+        while (root != null || !stack.isEmpty()) {
+            // 这一步目的是先找到左子树的最底层root 节点
+            while (root != null) {
+                // 因为你是中序遍历必须一直先找左节点
+                stack.push(root);
+                root = root.left;
+            }
+            // 找到最底层的最左子树节点，开始出站
+            root = stack.pop();
+            result.add(root.val);
+
+            // 这里的时候其实已经走到了最底层的分支节点的
+            root = root.right;
+        }
+        return root;
+    }
+
+    /**
+     * 第二种方法 递归遍历
+     */
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<Integer>();
         dfs(res, root);
         return res;
     }
-
-
     /**
      * 中序遍历
      *

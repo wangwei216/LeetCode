@@ -44,12 +44,23 @@
  * }
  */
 class Solution {
+    /**
+     * 递归
+     */
     public boolean isValidBST(TreeNode root) {
-
+        return dfs(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
-
-    public void dfs(TreeNode node){
-
+    public boolean dfs(TreeNode root, long min, long max){
+        if (root == null) {
+            return true;
+        }
+        // 因为在递归的时候，当一个root节点传进来的时候，
+        // 对于二叉搜索树的左节点来说：他的值的上限就是root的值，对于右结点来说，下限也是rootvalue的值
+        if (root.val <= min || root.val >= max) {
+            return false;
+        }
+        // 对于二叉树的递归，都是直接调用递归函数，重复判断左右子节点的套路
+        return dfs(root.left, min, root.val) && dfs(root.right, root.val, max);
     }
 
 

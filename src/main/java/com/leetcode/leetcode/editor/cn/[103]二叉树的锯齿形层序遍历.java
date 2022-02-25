@@ -71,7 +71,7 @@ class Solution {
         if (res.size() < index) {
             res.add(new ArrayList<>());
         }
-        // 这里需要去判断该层是 奇数 还是 偶数
+        // 这里需要去判断该层是 奇数 还是 偶数, 这里的核心其实是要先知道 ArrayList 是可以手动指定把元素放到某个固定的位置
         if ((index % 2) == 1) {
             res.get(index - 1).add(root.val);
         } else {

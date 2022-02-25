@@ -57,6 +57,7 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Definition for a binary tree node.
@@ -74,6 +75,39 @@ import java.util.List;
  * }
  */
 class Solution {
+
+    /**
+     * 迭代法
+     * @param root
+     * @return
+     */
+    public List<Integer> preorderTraversal(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        List<Integer> result = new ArrayList<>();
+
+        // 需要考虑 root 为null 的情况
+        if (root == null) {
+            return result;
+        }
+
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            root = stack.pop();
+            result.add(root.val);
+            // 利用栈的 先进后出的特性，因为前序的时候，需要先遍历左节点，所以需要先push 右节点
+            if (root.right != null) {
+                stack.push(root.right);
+            }
+            if (root.left != null) {
+                stack.push(root.left);
+            }
+        }
+        return  result;
+    }
+
+
+
+
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         dfs(root, res);

@@ -24,14 +24,17 @@ import java.util.ArrayList;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+    /**
+     * 第一种解法 回溯实现
+     */
     public List<List<Integer>> subsets(int[] nums) {
-
         List<List<Integer>> res = new ArrayList<>();
-        dfs(0, nums, res, new ArrayList<Integer>());
+        ArrayList<Integer> path = new ArrayList<>();
+        dfs(0, nums, res, path);
         return res;
     }
-
     public void dfs(int i, int[] nums, ArrayList<List<Integer>> res, ArrayList<Integer> path) {
+        // 把每一次上次递归放进去的值保存到 res 结果集合中
         res.add(new ArrayList<Integer>(path));
         for (int j = i; j < nums.length; j++) {
             path.add(nums[j]);
@@ -40,13 +43,13 @@ class Solution {
         }
     }
 
-
-
+    /**
+     * 第二种方法 回溯实现
+     */
     public List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         backtrack(0, nums, res, new ArrayList<Integer>());
         return res;
-
     }
     private void backtrack(int i, int[] nums, List<List<Integer>> res, ArrayList<Integer> tmp) {
         res.add(new ArrayList<>(tmp));

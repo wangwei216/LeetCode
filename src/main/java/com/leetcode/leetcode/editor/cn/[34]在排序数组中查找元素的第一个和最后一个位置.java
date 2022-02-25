@@ -22,6 +22,21 @@ import java.util.*;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+    /**
+     * 第一种方法：首先因为题目中的数组是有序的，会先想到使用二分法
+     */
+    public int[] searchRange(int[] nums, int target) {
+
+    }
+
+
+
+    /**
+     * 第一种方法 回溯
+     * @param candidates
+     * @param target
+     * @return
+     */
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> res = new ArrayList<>();
         int length = candidates.length;
@@ -30,7 +45,6 @@ class Solution {
         dfs(res, candidates, target, path, 0);
         return res;
     }
-
     /**
      *
      * @param res 结果集

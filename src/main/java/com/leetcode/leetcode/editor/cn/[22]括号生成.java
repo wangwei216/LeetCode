@@ -20,17 +20,22 @@
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
+import java.util.Stack;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+
+    /**
+     * 第一种思路：其实是使用【做减法】的操作，然后使用深度优先遍历进行
+     * @param n
+     * @return
+     */
     public List<String> generateParenthesis(int n) {
         List<String> res = new ArrayList<String>();
-        Deque<String> path = new ArrayDeque<>();
         dfs("", n, res, 0, 0);
         return res;
 
     }
-
     /**
      * @param tmpString
      * @param n
@@ -54,6 +59,11 @@ class Solution {
             dfs(tmpStrPath + ")", n, res, left, right + 1);
         }
     }
+
+    /**
+     * 第二种思路：
+     */
+
 
 
 }

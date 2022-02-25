@@ -97,10 +97,11 @@ class Solution {
         if (root == null) {
             return;
         }
-        // 其实就是当前的
+        // 其实就是当前的结果集合中的大小小于 index 的时候，其实就说明当前层级的 index 还没有数据，所以需要创建一个新的 ArrayList
         if (res.size() < index) {
             res.add(new ArrayList<Integer>());
         }
+        // 然后获取创建好的list，先把当前层的节点 放到list中
         res.get(index - 1).add(root.val);
         dfs(root.left, res, index + 1);
         dfs(root.right, res, index + 1);

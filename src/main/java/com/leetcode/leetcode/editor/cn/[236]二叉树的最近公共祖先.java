@@ -56,7 +56,7 @@ class Solution {
      * @return
      */
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        // 递归跳出的条件，此次递归的循环体就是用root节点进行下去的
+        // 递归跳出的条件，此次递归的循环体就是用root节点进行下去的，然后最后也是返回的是找到的根结点
         if (root == null || root == p || root == q) {
             return root;
         }

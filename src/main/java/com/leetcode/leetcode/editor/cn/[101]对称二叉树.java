@@ -62,6 +62,30 @@ class Solution {
         return (node1.val == node2.val) && isMirror(node1.left, node2.right) && isMirror(node1.right, node2.left);
     }
 
+    /**
+     * 第二种方法 递归实现(推荐使用)
+     */
+    public boolean isSymmetric(TreeNode root) {
+        // 先处理根节点
+        if (root == null) {
+            return true;
+        }
+        // 然后分别递归左右子节点 两边如果都相等的话，才算相等
+        return dfs(root.left, root.right);
+    }
+    public boolean dfs(TreeNode root1, TreeNode root2) {
+        if (root1 == null & root2 == null) {
+            return true;
+        }
+        if (root1 == null || root2 == null) {
+            return false;
+        }
+        if (root1.val != root2.val) {
+            return false;
+        }
+        // 处理左右子节点的左右节点
+        return dfs(root1.left, root2.right) && dfs(root1.right , root2.left);
+    }
 
 }
 //leetcode submit region end(Prohibit modification and deletion)

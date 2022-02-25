@@ -71,11 +71,31 @@ class Solution {
     /**
      * 递归方法
      */
-    int res = 0;
     public int sumNumbers(TreeNode root) {
-        dfs(root, 0);
-        return res;
+        int sum = 0;
+        if (root == null) {
+            return 0;
+        }
+        // 表示一直在更新的最后结果集合
+        return dfs(root, sum);
     }
+
+    public int dfs(TreeNode root, int sum) {
+        if (root == null) {
+            return 0;
+        }
+        // 因为每递归一层就大一个数量级，加上当前的root节点的值
+        sum = sum * 10 + root.val;
+
+        // 只要有一个子节点还有值，就继续往下走
+        if (root.left == null && root.right == null) {
+            return sum;
+        }
+        int leftSum = dfs(root.left, sum);
+        int rightSum = dfs(root.right, sum);
+        return leftSum + rightSum;
+    }
+
     public void dfs(TreeNode root, int number) {
         number = number * 10 + root.val;
         // 把结束时候的每一个叶节点的分支之和都累加到 res 中
