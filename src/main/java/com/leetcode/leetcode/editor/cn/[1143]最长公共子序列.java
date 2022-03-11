@@ -48,6 +48,7 @@
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+
     /**
      * 方法一 使用动态规划进行
      * 1. 首先需要创建一个二维数组来表示  db[i][j] text1的从[1, i]之间 和 字符串text2的从[1, j]之间的最长公共子序列的值
@@ -56,21 +57,27 @@ class Solution {
      * 3. 序列都是从下标1 进行开始
      */
     public int longestCommonSubsequence(String text1, String text2) {
-        int M = text1.length();
-        int N = text2.length();
-        int[][] dp = new int[M+1][N+1];
-        for (int i = 1; i <= M; i++) {
-            for (int j = 1; j <= N; j++) {
-                // 核心的关键其实就是判断遍历中的两个字符是不是相同，因为是从下标1开始，所以要真正比较字符串的时候，需要-1
-                if (text1.charAt(i - 1) == text2.charAt(j - 1)) {
+        int m = text1.length();
+        int n = text2.length();
+        // 首先你先从结果进行去思考，因为最终结果求的就是两个字符串的最长公共子序列，dp[i][j]表示的就是从1 到 i之间 和 i 到 j 之间的最长公共子序列的值
+        // 假设最后一个 字符串都相同  dp[i-1][j-1] + 1
+        // 假设两个字符串的中只有其中一个字符串的最后一个相同的话， dp[i-1][j]  dp[i][j-1]
+        // 或者 两个字符串的最后一个都不相同  dp[i-1][j-1] ,而我需要的只是其中的一个最大值而已
+        int[][] dp = new int[m + 1][n + 1]; // 因为是从 1 开始，所以需要再加上一个元素等于原来从 0 开始的大小
+
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (text1.charAt(i -1) == text2.charAt(j - 1)) {
+                    // 核心的关键其实就是判断遍历中的两个字符是不是相同，因为是从下标1开始，所以要真正比较字符串的时候，需要-1
+                    // 这里要保证第一个值是 dp[0][0]，所以 i 必须是从 1开始计算
                     dp[i][j] = dp[i - 1][j - 1] + 1;
                 } else {
-                    dp[i][j] = Math.max(dp[i-1][j], dp[i][j-1]);
+                    dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
                 }
             }
         }
         // 因为最终遍历到最后结束，其他的都是中间过程
-        return dp[M][N];
+        return dp[m][n];
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

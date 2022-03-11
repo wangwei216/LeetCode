@@ -25,43 +25,36 @@ import java.util.Stack;
  * }
  */
 class Solution {
-    /**
-     * 第一种方法是递归进行的
-     *
-     * @param head
-     * @param m
-     * @param n
-     * @return
-     */
-    public ListNode reverseBetween(ListNode head, int m, int n) {
-        if (m == 1) {
-            return reverseN(head, n);
-        }
-        // 前进到反转的起点触发 base case
-        head.next = reverseBetween(head.next, m - 1, n - 1);
-        return head;
-    }
 
     /**
-     * 反转链表的前N个节点
+     * 第一种方法是基于简单原地直接迭代进行反转链表
      *
-     * @param head
-     * @param n
-     * @return
      */
-    ListNode reverseN(ListNode head, int n) {
-        // 这个变量是用来保存找到头节点之后的 第n+1个节点
-        ListNode nextNode = null;
-        if (n == 1) {
-            nextNode = head.next;
-            return head;
+    public static ListNode reverseBetween(ListNode head, int m, int n) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode node = dummy;
+        for (int i = 1; i < m; i++) {
+            node = node.next;
         }
-        ListNode newHead = reverseN(head.next, n - 1);
-        //
-        head.next.next = head;
-        // 这个是反转之后的头节点和，其实就是反转的尾节点和原来的第n+1个节点连起来
-        head.next = nextNode;
-        return newHead;
+        // 这里直接就按照简单反转链表的逻辑，构建当前节点，和一个 pre 头节点
+        ListNode cur = node.next;
+        ListNode pre = null;
+        ListNode tmp = null;
+
+        for (int i = m; i <= n; i++) {
+            tmp = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = tmp;
+        }
+        // 1->2->3->4->5
+        // 1->4->3->2->5
+        // 因为第一次的循环其实已经先走了m步，也就是需要把不需要反转的那一部分的第一个节点 也就是把 5 挂到 2的后面
+        node.next.next = cur;
+        // 这一步其实是把反转链表部分的最后一个点 4 挂到 1 的后面，而node.ndex 对应的就是第一次真实链表的头节点
+        node.next = pre;
+        return dummy.next;
     }
 
     /**

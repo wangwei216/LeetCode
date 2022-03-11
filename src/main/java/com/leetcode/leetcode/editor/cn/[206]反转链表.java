@@ -21,32 +21,32 @@
  * ListNode(int x) { val = x; }
  * }
  */
+
 class Solution {
 
+
     /**
-     * 第一种迭代法
-     * 直接原地进行反转链表
-     *
+     * 第二种方式创建头节点
      * @param head
      * @return
      */
     public ListNode reverseList(ListNode head) {
-        ListNode pre = null;
+        ListNode dummy = new ListNode(-1);
         ListNode cur = head;
-        // 跳出的循环条件是从 header开始，如果head 为null，跳出
         while (cur != null) {
             ListNode tmp = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = tmp;
+            cur.next = dummy.next;
+            dummy.next = cur;
+            cur = tmp
         }
-        return pre;
+        return dummy.next;
     }
 
 
     /**
      * 直接使用三个指针进行的
-     *
+     * 第一种迭代法
+     * 直接原地进行反转链表
      * @param head
      * @return
      */

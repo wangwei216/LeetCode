@@ -42,17 +42,57 @@ public class IsPalindromeList {
         return true;
     }
 
+
+    /**
+     * 第一种方法是基于简单原地直接迭代进行反转链表
+     * @param head
+     * @param m
+     * @param n
+     * @return
+     */
+    public static ListNode reverseBetween(ListNode head, int m, int n) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next = head;
+        ListNode node = dummy;
+        for (int i = 1; i < m; i++) {
+            node = node.next;
+        }
+        // 这里直接就按照简单反转链表的逻辑，构建当前节点，和一个 pre 头节点
+        ListNode cur = node.next;
+        ListNode pre = null;
+        ListNode tmp = null;
+
+        for (int i = m; i <= n; i++) {
+            tmp = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = tmp;
+        }
+        // 1->2->3->4->5
+        // 1->4->3->2->5
+        // 因为第一次的循环其实已经先走了m步，也就是需要把不需要反转的那一部分的第一个节点 也就是把 5 挂到 2的后面
+        node.next.next = cur;
+        // 这一步其实是把反转链表部分的最后一个点 4 挂到 1 的后面
+        node.next = pre;
+        return dummy.next;
+    }
+
     public static void main(String[] args) {
         // 1->2->3->4->5->6->7->null
         ListNode head1 = new ListNode(1);
         head1.next = new ListNode(2);
-        head1.next.next = new ListNode(2);
-        head1.next.next.next = new ListNode(1);
-//        head1.next.next.next.next = new ListNode(4);
-//        head1.next.next.next.next.next = new ListNode(3);
+        head1.next.next = new ListNode(3);
+        head1.next.next.next = new ListNode(4);
+        head1.next.next.next.next = new ListNode(5);
+//        head1.next.next.next.next.next = new ListNode(6);
 //        head1.next.next.next.next.next.next = new ListNode(2);
 //        head1.next.next.next.next.next.next.next = new ListNode(1);
-        Boolean result = isPalindromeList(head1);
+
+        ListNode result = reverseBetween(head1, 2, 4);
+        while (result != null) {
+           System.out.print(result.val + "->");
+           result = result.next;
+       }
         System.out.println("该链表是不是回文结构："+result);
     }
 

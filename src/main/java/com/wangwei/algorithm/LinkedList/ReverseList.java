@@ -35,9 +35,11 @@ public class ReverseList {
     }
 
     public static void main(String[] args) {
-        Node node1 = new Node(11);
-        node1.setNext(new Node(22));
-        node1.getNext().setNext(new Node(33));
+        Node node1 = new Node(1);
+        node1.setNext(new Node(2));
+        node1.getNext().setNext(new Node(3));
+        node1.getNext().getNext().setNext(new Node(4));
+        node1.getNext().getNext().getNext().setNext(new Node(5));
 
         while (node1 != null){
             System.out.println(node1.Data);

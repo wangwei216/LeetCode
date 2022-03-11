@@ -32,7 +32,7 @@ class Solution {
     public int findLength(int[] nums1, int[] nums2) {
         int m = nums1.length;
         int n = nums2.length;
-        // 这里已经默认填充为0了
+        // 这里的 dp[m][n] 表示 nums1中 从1 到m 和 nums2 中从1 到n之间的最长连续子数组
         int[][] dp = new int[m+1][n+1];
         int res = 0;
         for (int i = 1; i <= m; i++) {

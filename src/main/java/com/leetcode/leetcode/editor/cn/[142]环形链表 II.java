@@ -70,41 +70,38 @@
  * }
  */
 public class Solution {
+
     /**
-     * 第一种使用快慢指针
-     *  思路：
-     * @param head
-     * @return
+     *
+     *  第一种方式: 使用两个速度为1的指针，一个从头结点开始走，一个从快慢指针相遇结点开始走，他们最终会在环入口结点相遇
+     *      思路：
+     *          1. 首先需要找到两个指针相遇的地方，其实也就是环形链表一的答案，
+     *          2. 然后在此基础上，如果从两个快慢指针相遇的地方，和头指针再从头开始走，他们最终会在环入口节点相遇
+     *
      */
     public ListNode detectCycle(ListNode head) {
         ListNode fast = head;
         ListNode slow = head;
         ListNode meet = null;
+
         while (fast != null) {
-            //先进行判断快指针如果走一步到头
+            // 因为快指针一次走两步，防止一次走到头导致的越界，所以需要做个判断
             if (fast.next == null) {
                 return null;
             }
             fast = fast.next.next;
             slow = slow.next;
             if (fast == slow) {
-                // 如果相遇，就让头节点和相遇的节点同时进行走，相遇的那个节点就是
                 meet = fast;
+                // 这里让相遇节点和头节点同步开始走, 因为他们最终肯定会相遇，且相遇的那个节点就是环的入口节点，所以只要他们不相同就继续向前走
                 while (meet != head) {
-                    head = head.next;
                     meet = meet.next;
+                    head = head.next;
                 }
-                // 当头节点和相遇的节点再次碰头的时候，就是成环的入口点了
-                return head;
+                return meet;
             }
         }
         return null;
-    }
-
-
-    public ListNode detectCycle(ListNode head) {
-
-
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

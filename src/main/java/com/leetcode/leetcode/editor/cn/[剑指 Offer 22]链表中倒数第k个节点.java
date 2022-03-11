@@ -29,17 +29,19 @@ class Solution {
      *  1. 先让fast先走k步，然后快慢指针再一起走，直到快指针到头的时候，此时的慢指针就是倒数第k个位置
      */
     public ListNode getKthFromEnd(ListNode head, int k) {
-        ListNode fast = head;
-        ListNode slow = head;
-        while (k > 0) {
-            k--;
+        ListNode pre = new ListNode(-1);
+        pre.next = head;
+        ListNode fast = pre;
+        ListNode slow = pre;
+        for (int i = 0; i < k; i++) {
             fast = fast.next;
         }
-        while (fast != null) {
+        while (fast.next != null) {
             fast = fast.next;
             slow = slow.next;
         }
-        return fast;
+        return slow;
     }
+
 }
 //leetcode submit region end(Prohibit modification and deletion)
