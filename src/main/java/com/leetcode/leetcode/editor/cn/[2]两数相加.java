@@ -31,6 +31,20 @@ import java.util.List;
  * }
  */
 class Solution {
+
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        if (l1 == null && l2 == null) {
+            return null;
+        }
+        if (l2 == null) {
+            return addTwoNumbers(l1, l2);
+        }
+
+
+        l1.next = addTwoNumbers(l1.next, )
+
+    }
+
     /**
      * 思路就是使用一个循环进行遍历
      *

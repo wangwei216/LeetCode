@@ -76,6 +76,10 @@ class Solution {
         return slow;
     }
 
+    public void swap(ListNode node1, ListNode node2) {
+
+    }
+
     /**
      * 第二种方法就是使用归并排序，时间复杂度也是O(nlogn)
      *

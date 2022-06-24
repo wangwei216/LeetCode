@@ -88,16 +88,18 @@ class Solution {
             return new ArrayList<List<Integer>>();
         }
         List<List<Integer>> res = new ArrayList<List<Integer>>();
+        // 首先想到的是 List 中表示的是每一层的值，那在List中下标就对应着层数的关系，在递归的过程中，得知道当前递归所在的层级，才能把值放到对应的List中
         dfs(root, res, 1);
         return res;
     }
 
+    // index 就是表示的就是当前的递归的层级，好把节点放到对应的List中
     public void dfs(TreeNode root, List<List<Integer>> res, int index) {
-        // 递归的结束条件
         if (root == null) {
             return;
         }
-        // 其实就是当前的结果集合中的大小小于 index 的时候，其实就说明当前层级的 index 还没有数据，所以需要创建一个新的 ArrayList
+        // 因为res是最终的结果，最终肯定是一个层级对应着一个List，然后返回最外层的一个大List，
+        // 所以这里如果最终结果中的小List 数量小于 当前层级数时，就说明当前层级中的小List 还没有进行初始化「也就是创建一个空的List用来存值」
         if (res.size() < index) {
             res.add(new ArrayList<Integer>());
         }

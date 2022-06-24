@@ -54,7 +54,7 @@
  */
 class Solution {
     /**
-     * 使用迭代的方法：核心思路其实就是构建一个双指针，两者同时移动然后改变指针方向，同时还需要构建dummpy指针，和一个遍历的变量
+     * 第一种方式迭代的方法：核心思路其实就是构建一个双指针，两者同时移动然后改变指针方向，同时还需要构建dummpy指针，和一个遍历的变量
      * @param head
      * @return
      */
@@ -76,5 +76,37 @@ class Solution {
         }
         return dummy.next;
     }
+
+    /**
+     * 第二种递归的方式
+     */
+    public ListNode swapPairs(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        // A -> B -> C -> D
+        // B -> A -> C -> D
+        // B -> A -> D -> C
+        // 先定义一个新的变量指向本次要返回的头节点
+        ListNode nextHeader = head.next;
+        ListNode rest = head.next.next;
+        // 把A 放到 B 的后面
+        nextHeader.next = head;
+        // 这一步其实把下一次递归的头节点是 C ,连接到当前此次递归的末尾节点「其实也就是节点A」
+        head.next = swapPairs(rest);
+        return nextHeader;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }
 //leetcode submit region end(Prohibit modification and deletion)

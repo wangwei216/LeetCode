@@ -38,6 +38,12 @@
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -49,8 +55,35 @@
  * }
  */
 class Solution {
-    public void reorderList(ListNode head) {
 
+    /**
+     * 第一种方法是使用双端队列来实现
+     * @param head
+     */
+    public void reorderList(ListNode head) {
+        if (head == null) {
+            return;
+        }
+        List<ListNode>  list = new ArrayList<>();
+        while (head != null) {
+            list.add(head);
+            head = head.next;
+        }
+
+        1 2 3 4 5
+        1 5 2 4 3
+        // 使用双指针，然后吧最后一个节点放到头节点的后面
+        int i = 0;
+        int j = list.size() - 1;
+        while (i < j) {
+            // 吧 5 放到 1的位置
+            list.get(i).next = list.get(j);
+            i++;
+            // 吧 2 放到 5 的位置，然后一次迭代
+            list.get(j).next = list.get(i);
+            j--;
+        }
+        list.get(i).next = null;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)

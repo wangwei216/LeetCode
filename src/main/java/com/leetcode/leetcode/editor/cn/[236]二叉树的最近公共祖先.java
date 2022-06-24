@@ -37,6 +37,8 @@
 
 //leetcode submit region begin(Prohibit modification and deletion)
 
+import javax.swing.tree.TreeNode;
+
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -47,6 +49,34 @@
  * }
  */
 class Solution {
+
+    /**
+     * 第二次递归刷
+     *    思路：
+     *      1。首先只考虑有最基本的三个节点，整个递归的当前root
+     *      2。通过当前根去找左右节点
+     */
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (root == null || root == p || q == root) {
+            return root;
+        }
+
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+
+        // 这里只有最底部的叶子节点才能走到这里，开始一层一层把递归返回，如果左子树节点为空，就继续返回右节点继续递归
+        if (left == null) {
+            return right;
+        }
+
+        if (right == null) {
+            return left;
+        }
+        // 如果最底部左右子节点都为空，说明当前跟节点就是最后的节点，直接返回到上一层
+        return root;
+    }
+
+
     /**
      * 第一种方法是递归查询的
      *

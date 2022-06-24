@@ -32,28 +32,29 @@
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode() {}
- *     ListNode(int val) { this.val = val; }
- *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * int val;
+ * ListNode next;
+ * ListNode() {}
+ * ListNode(int val) { this.val = val; }
+ * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
 class Solution {
-    // -9 1 1 2 3
+
     public ListNode deleteDuplicates(ListNode head) {
         ListNode pre = new ListNode(-1);
         pre.next = head;
         ListNode cur = pre;
 
         while (cur.next != null && cur.next.next != null) {
+            // 如果两个树相同的话，就继续往后找，找的过程中，先取出来第一个相同的值，好用来进行做比较，直到找到不是重复的节点就退出，然后跳出第二层循环
             if (cur.next.val == cur.next.next.val) {
-                // 到这里先找到当前节点的下一个值，和下下一个值一样的值，然后需要把cur 指针往后进行继续找。找到相同的就需要继续更新cur.next 值
                 int x = cur.next.val;
-                while (cur.next != null && cur.next.val == x) {
+                while (cur.next != null && x == cur.next.val) {
                     cur.next = cur.next.next;
                 }
             } else {
