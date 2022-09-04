@@ -1,6 +1,7 @@
 package com.wangwei.algorithm.algorithmsTop100;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Code3 {
 
@@ -33,6 +34,34 @@ public class Code3 {
             map.put(c, end);
         }
         return res;
+    }
+
+    /**
+     *      *      * 滑动窗口算法
+     *      *      * 1、什么时候应该移动 right 扩大窗口？窗口加入字符时，应该更新哪些数据？
+     *      *      * 2、什么时候窗口应该暂停扩大，开始移动 left 缩小窗口？从窗口移出字符时，应该更新哪些数据？
+     *      *      * 3、我们要的结果应该在扩大窗口时还是缩小窗口时进行更新？
+     * @param s
+     * @return
+     */
+    public int lengthOfLongestSubstring1(String s) {
+        Map<Character, Integer> window = new HashMap<>();
+        int left = 0 , right = 0 , maxCount = 0;
+        while (right < s.length()) {
+            char c = s.charAt(right);
+            right++;
+            window.put(c, window.getOrDefault(c, 0) + 1);
+
+            // 判断窗口是否需要收缩，其实就是看维护的窗口中，是否已经出现过该字符串，如果已经出现过一次了的话，那么就需要
+            while (window.get(c) > 1) {
+                char removeChar = s.charAt(left);
+                left++;
+                window.put(removeChar, window.getOrDefault(removeChar, 0) - 1);
+            }
+
+            maxCount = Math.max(maxCount, right - left);
+        }
+        return maxCount;
     }
 
 }
